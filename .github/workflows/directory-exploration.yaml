@@ -1,0 +1,19 @@
+name: directory-exploration
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  directory-exploration-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create test_folder
+        run: mkdir -p /home/runner/test_folder
+
+      - name: Create sample.txt
+        run: echo "Hello, GitHub Actions!" > /home/runner/test_folder/sample.txt
+
+      - name: Verify file content
+        working-directory: /home/runner/test_folder
+        run: cat sample.txt

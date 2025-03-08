@@ -1,0 +1,27 @@
+name: multi-shell-system-info
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  system-info-job:
+    runs-on: windows-latest
+    steps:
+      - name: System Info (Bash)
+        shell: bash
+        run: uname -a
+
+      - name: System Info (PowerShell)
+        shell: pwsh
+        run: Get-ComputerInfo
+
+      - name: System Info (Python)
+        shell: python
+        run: |
+          import sys
+          print(sys.version)
+
+      - name: System Info (Node.js)
+        shell: node
+        run: console.log(process.version);

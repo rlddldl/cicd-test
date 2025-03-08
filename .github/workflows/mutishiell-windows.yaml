@@ -23,5 +23,5 @@ jobs:
           print(sys.version)
 
       - name: System Info (Node.js)
-        shell: node
-        run: console.log(process.version);
+        shell: pwsh
+        run: node -e "console.log(process.version)"
